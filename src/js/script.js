@@ -93,6 +93,7 @@
       thisProduct.formInputs = thisProduct.element.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
 
     initAccordion(){
@@ -161,7 +162,7 @@
       let price = thisProduct.data.price;
       console.log('price', price);
 
-      /* start loop - for each params elements */
+      /* start loop - for each params element */
       for(let paramId in thisProduct.data.params){
         console.log('all params elements:', paramId);
 
@@ -169,7 +170,7 @@
         const param = thisProduct.data.params[paramId];
         console.log('param: ', param);
 
-        /* start loop - for each params options */
+        /* start loop - for each param options */
         for(let optionId in param.options){
 
           /* save the element in param.options with key optionId as const option */
@@ -180,12 +181,24 @@
           /* if selected option is not default, raise product price */
           if (selectedOption && !option.default){
             price += option.price;
-          } 
+          }
           
           /* else if default option is not selected, lower product price */
             else if (option.default && !selectedOption ){
             price -= option.price;
-          }
+          };
+
+          const productImages = thisProduct.imageWrapper.querySelectorAll("." + paramId + "-" + optionId); 
+          
+          if(selectedOption){
+            for(let productImage of productImages){
+            productImage.classList.add(classNames.menuProduct.imageVisible);
+            }
+          } else {
+            for(let productImage of productImages){
+            productImage.classList.remove(classNames.menuProduct.imageVisible);
+            }
+          };
 
         /* end loop - for each params options */
         }
