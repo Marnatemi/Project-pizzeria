@@ -61,6 +61,8 @@
       thisProduct.renderInMenu();
       thisProduct.getElements();
       thisProduct.initAccordion();
+      thisProduct.initOrderForm();
+      thisProduct.processOrder();
 
       console.log('new Product:', thisProduct);
     }
@@ -123,6 +125,74 @@
         }
       /* END: click event listener to trigger */
       });
+    }
+
+    initOrderForm(){
+      const thisProduct = this;
+      console.log(thisProduct.initOrerForm);
+
+      thisProduct.form.addEventListener('submit', function(event){
+        event.preventDefault();
+        thisProduct.processOrder();
+      });
+      
+      for(let input of thisProduct.formInputs){
+        input.addEventListener('change', function(){
+          thisProduct.processOrder();
+        });
+      }
+      
+      thisProduct.cartButton.addEventListener('click', function(event){
+        event.preventDefault();
+        thisProduct.processOrder();
+      });
+    }
+
+    processOrder(){
+      const thisProduct = this;
+      console.log(thisProduct.processOrder);
+
+      /* read all data from the form (using utils.serializeFormToObject) and save it to const formData */
+      const formData = utils.serializeFormToObject(thisProduct.form);
+      console.log('formData', formData);
+      console.log('obiekt: ', thisProduct.params);
+
+      /* set variable price to equal thisProduct.data.price */
+      let price = thisProduct.data.price;
+      console.log('price', price);
+
+      /* start loop - for each params elements */
+      for(let paramId in thisProduct.data.params){
+        console.log('all params elements:', paramId);
+
+        /* save the element in thisProduct.data.params with key paramId as const param */
+        const param = thisProduct.data.params[paramId];
+        console.log('param: ', param);
+
+        /* start loop - for each params options */
+        for(let optionId in param.options){
+
+          /* save the element in param.options with key optionId as const option */
+          const option = param.options[optionId];
+
+          const selectedOption = formData.hasOwnProperty(paramId) && formData[paramId].indexOf(optionId) > -1;
+
+          /* if selected option is not default, raise product price */
+          if (selectedOption && !option.default){
+            price += option.price;
+          } 
+          
+          /* else if default option is not selected, lower product price */
+            else if (option.default && !selectedOption ){
+            price -= option.price;
+          }
+
+        /* end loop - for each params options */
+        }
+      /* end loop - for each params elements */
+      }
+      console.log('total price is: ', price);
+      thisProduct.priceElem.innerHTML = price;
     }
   }
 
