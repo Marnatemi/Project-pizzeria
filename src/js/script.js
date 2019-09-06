@@ -370,6 +370,9 @@
 
       thisCart.dom.wrapper = element;
 
+      thisCart.dom.form = thisCart.dom.wrapper.querySelector(select.cart.form);
+      thisCart.phone = thisCart.dom.wrapper.querySelector(select.cart.phone);
+      thisCart.address = thisCart.dom.wrapper.querySelector(select.cart.address);
       thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
       thisCart.dom.productList = thisCart.dom.wrapper.querySelector(select.cart.productList);
       thisCart.renderTotalsKeys = ['totalNumber', 'totalPrice', 'subtotalPrice', 'deliveryFee'];
@@ -394,6 +397,51 @@
       thisCart.dom.productList.addEventListener('remove', function(){
         thisCart.remove(event.detail.cartProduct);
       });
+
+      thisCart.dom.form.addEventListener('submit', function(){
+        event.preventDefault();
+
+        thisCart.sendOrder();
+      });
+    }
+
+    sendOrder(){
+      const thisCart = this;
+
+      const url = settings.db.url + '/' + settings.db.order;
+      console.log('url', url);
+
+      const payload = {
+        address: thisCart.address.value,
+        phone: thisCart.phone.value,
+        totalPrice: thisCart.totalPrice,
+        subtotalPrice: thisCart.subtotalPrice,
+        totalNumber: thisCart.totalNumber,
+        deliveryFee: thisCart.deliveryFee,
+
+        products: [],
+      };
+
+      for(let product of thisCart.products){
+        const data = product.getData();
+        
+        payload.products.push(data);
+
+      }
+
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      };
+
+      fetch(url, options) 
+        .then(response => response.json()) 
+        .then(parsedResponse => {
+          console.log('parsedResponse', parsedResponse);
+        }); 
     }
 
     add(menuProduct){
@@ -509,6 +557,19 @@
 
       thisCartProduct.dom.wrapper.dispatchEvent(event);
       console.log('remove works!');
+    }
+
+    getData(){
+      const thisCartProduct = this;
+
+      return {
+        id: thisCartProduct.id,
+        amount: thisCartProduct.amount,
+        price: thisCartProduct.price,
+        priceSingle: thisCartProduct.priceSingle,
+        params: thisCartProduct.params,
+      };
+
     }
 
     initActions(){
