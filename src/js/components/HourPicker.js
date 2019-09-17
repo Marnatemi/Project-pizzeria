@@ -1,6 +1,6 @@
-import BaseWidget from "./BaseWidget.js";
-import { settings, select } from "../settings.js";
-import utils from "../utils.js";
+import BaseWidget from './BaseWidget.js';
+import { settings, select } from '../settings.js';
+import utils from '../utils.js';
 
 class HourPicker extends BaseWidget {
   constructor(wrapper){
@@ -12,25 +12,20 @@ class HourPicker extends BaseWidget {
 
     thisWidget.initPlugin();
     thisWidget.value = thisWidget.dom.input.value;
-    console.log(thisWidget.dom.wrapper);
-    console.log('start value', thisWidget.value);
   }
 
   initPlugin(){
     const thisWidget = this;
 
-    rangeSlider.create(thisWidget.dom.input);
+    rangeSlider.create(thisWidget.dom.input);     // eslint-disable-line 
 
-      thisWidget.dom.input.addEventListener('input', function(){
-      thisWidget.value = thisWidget.dom.input.value;
-      console.log('value', thisWidget.value);
-      
+    thisWidget.dom.input.addEventListener('input', function(){
+      thisWidget.value = thisWidget.dom.input.value;  
     });
   }
 
   parseValue(value){
     const hour = utils.numberToHour(value);
-    console.log('hour', hour);
     return hour;
   }
 
@@ -42,8 +37,6 @@ class HourPicker extends BaseWidget {
     const thisWidget = this;
 
     thisWidget.dom.output.innerHTML = thisWidget.value;
-    console.log('thisWidget.dom.output',thisWidget.dom.output)
-
   }
 }
 
