@@ -65,7 +65,8 @@ export const select = {
     tables: '.floor-plan .table',
     phone: '[name="phone"]',
     address: '[name="address"]',
-    form: '.booking-form .order-confirmation',
+    form: '.booking-form',
+    starters: '[name="starter"]',
   },
   nav: {
     links: '.main-nav a',
@@ -110,6 +111,7 @@ export const settings = {
   },
   booking: {
     tableIdAttribute: 'data-table',
+    starterValueAttribute: 'value',
   },
   db: {
     url: '//localhost:3131',

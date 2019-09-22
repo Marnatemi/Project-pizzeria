@@ -138,7 +138,7 @@ class Product{
           price += option.price;
         }
         
-        /* else if default option is not selected, lower product pprorice */
+        /* else if default option is not selected, lower product price */
         else if (option.default && !selectedOption){
           price -= option.price;
         }
