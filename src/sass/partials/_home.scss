@@ -1,0 +1,58 @@
+.home-wrapper {
+  margin: ($base-size * 3.5) auto;
+  padding: ($base-size * 6) ($base-size * 4);
+  background: $color-light;
+  border-bottom: 1px solid lighten($color-dark, 70%);
+  border-radius: $radius;
+  text-align: center;
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+}
+.box {
+  box-sizing: border-box;
+  height: 119px;
+  flex: 1 0 0;
+  color: $color-light;
+  margin: 3px;
+  position: relative;
+
+  
+
+  .box-photo {
+    border-radius: $radius;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .box-content{
+    @include center;
+
+    .box-title {
+      @extend .h1;
+      margin: 0;
+    }
+
+    .box-subtitle{
+      display: none;
+    }
+  }
+  
+
+
+}
+
+.bottom {
+  background-color: $color-main;
+  flex: 0 0 100%;
+  border-radius: $radius;
+
+  .box-content .box-subtitle {
+    display: block;
+    margin: 0;
+    @extend .h2;
+  }
+}

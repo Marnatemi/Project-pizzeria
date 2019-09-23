@@ -2,15 +2,19 @@ import {settings,select, classNames} from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
+import Home from './components/Home.js';
 
 
 
 export const app = {
+
   initPages: function(){
     const thisApp = this;
 
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
+
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
+
 
     const idFromHash = window.location.hash.replace('#/', '');
 
@@ -22,6 +26,7 @@ export const app = {
         break;
       }
     }  
+    //console.log(thisApp.pages);
     
     thisApp.activatePage(pageMatchingHash);
 
@@ -38,7 +43,6 @@ export const app = {
 
         /* change URL hash */
         window.location.hash = '#/' + id;
-
       });
     }
   },
@@ -60,6 +64,29 @@ export const app = {
         link.getAttribute('href') == '#' + pageId
       );
     }
+
+    thisApp.initHeader();
+  },
+
+  initHeader: function(){
+    const thisApp = this;
+
+    thisApp.cartWrapper = document.querySelector(select.containerOf.cart);
+    thisApp.nav = document.querySelector(select.nav.linksWrapper);
+    thisApp.home = thisApp.pages[0].getAttribute('class');
+    console.log(thisApp.home);
+
+    thisApp.nav.classList.toggle(classNames.nav.hidden, thisApp.home == classNames.pages.active);
+    thisApp.cartWrapper.classList.toggle(classNames.cart.hidden, thisApp.home == classNames.pages.active);
+  },
+
+  initHome: function(){
+    const thisApp = this;
+
+    const homeElem = document.querySelector(select.containerOf.home);
+
+    thisApp.home = new Home (homeElem);
+
   },
 
 
@@ -71,7 +98,6 @@ export const app = {
     for(let productData in thisApp.data.products){
       new Product(thisApp.data.products[productData].id, thisApp.data.products[productData]);
     }
-
   },
 
   initData: function(){
@@ -105,6 +131,7 @@ export const app = {
     //console.log('templates:', templates);
     
     thisApp.initPages();
+    thisApp.initHome();
     thisApp.initData();
     thisApp.initCart();
     thisApp.initBooking();
@@ -113,7 +140,7 @@ export const app = {
   initCart: function(){
     const thisApp = this;
 
-    const cartElem = document.querySelector(select.containerOf.cart);
+    const cartElem = thisApp.cartWrapper;
     thisApp.cart = new Cart(cartElem);
 
     thisApp.productLst = document.querySelector(select.containerOf.menu);

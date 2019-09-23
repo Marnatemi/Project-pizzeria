@@ -24,7 +24,7 @@ class Product{
     /* generate HTML based on templete */
     const generatedHTML = templates.menuProduct(thisProduct.data);
     ////console.log(generatedHTML);
-
+    
     /* create element using utils.createElementfromHTML */
     thisProduct.element = utils.createDOMFromHTML(generatedHTML);
 
@@ -33,6 +33,7 @@ class Product{
 
     /* add element to menu */
     menuContainer.appendChild(thisProduct.element);
+
 
   }
 

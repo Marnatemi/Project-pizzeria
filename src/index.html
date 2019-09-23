@@ -19,11 +19,11 @@
           <h1 class="logo__title"><span>Mamma</span>Mia!</h1>
           <h2 class="logo__subtitle">the best homemade Italian food</h2>
         </div>
-        <div class="main-nav">
+        <div class="main-nav hidden">
           <a href="#order">Order</a>
           <a href="#booking">Booking</a>
         </div>
-        <div id="cart" class="cart">
+        <div id="cart" class="cart hidden">
           <div class="cart__summary">
             <span class="cart__total-number">0</span>
             <span class="cart__total-price">Total price: $<strong>0</strong></span>
@@ -61,6 +61,9 @@
   </header>
 
   <div id="pages">
+    <section id="home">
+      <div class="home-wrapper container"></div>
+    </section>
     <section id="order">
       <div id="product-list" class="product-list container"></div>
     </section>
@@ -68,6 +71,33 @@
       <div class="booking-wrapper container"></div>
     </section>
   </div>
+
+  <script id="template-home-page" type="text/x-handlebars-template">
+    <div class="home-page">
+      <section class="boxes">
+        <div class="box top">
+          <img class="box-photo" src="images/home/pizza-1.jpg" alt="pizza">
+          <div class="box-content">
+            <h1 class="box-title">Order online</h1>
+            <h3 class="box-subtitle">Delicious food delivered to your door</h3>
+          </div>
+        </div>
+        <div class="box top">
+          <img class="box-photo" src="images/home/pizza-2.jpg" alt="table">
+          <div class="box-content">
+            <h1 class="box-title">Book a table</h1>
+            <h3 class="box-subtitle">Table prepared especially for you</h3>
+          </div>  
+        </div>
+        <div class="box bottom">
+          <div class="box-content">
+            <h1 class="box-title">Opening hours:</h1>
+            <h3 class="box-subtitle">tue-sun, 12pm - 11pm</h3>
+          </div>    
+        </div>
+      </section>
+    </div>
+  </script>
 
   <script id="template-booking-widget" type="text/x-handlebars-template">
     <div class="booking-widget">

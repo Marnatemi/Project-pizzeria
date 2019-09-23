@@ -148,7 +148,7 @@ class Booking {
     const thisBooking = this;
 
     const url = settings.db.url + '/' + settings.db.booking;
-    console.log('url', url);
+    //console.log('url', url);
 
     const payload = {
       phone: thisBooking.phone.value,
@@ -169,7 +169,7 @@ class Booking {
       }
     }
     
-    console.log(payload);
+    //console.log(payload);
       
     thisBooking.makeBooked(payload.date, payload.hour, payload.duration, payload.table);
 

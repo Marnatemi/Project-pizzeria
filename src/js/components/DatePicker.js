@@ -16,12 +16,11 @@ class DatePicker extends BaseWidget {
 
   initPlugin() {
     const thisWidget = this;
-
     thisWidget.minDate = new Date(thisWidget.value);
     thisWidget.maxDate = utils.addDays(thisWidget.minDate, settings.datePicker.maxDaysInFuture);
+    
 
-
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
     flatpickr(thisWidget.dom.input, {
       defaultDate: thisWidget.minDate,
       minDate: thisWidget.minDate,
