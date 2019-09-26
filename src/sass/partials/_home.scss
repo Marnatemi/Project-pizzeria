@@ -23,11 +23,13 @@
       display: block;
       min-width: $home-size;
       @extend .h2;
+      margin: 3px 0;
     }
   }
 }
 
 .box {
+  display: block;
   box-sizing: border-box;
   min-width: $home-size;
   height: 119px;
@@ -36,23 +38,27 @@
   margin: 3px;
   position: relative;
 
-  .box__photo {
+  &__photo {
     border-radius: $radius;
     height: 100%;
     width: 100%;
     object-fit: cover;
   }
 
-  .box__content{
+  &__content {
     @include center;
+    width: 100%;
 
     .box__title {
       @extend .h1;
       margin: 0;
     }
 
-    .box__subtitle{
+    .box__subtitle {
       display: none;
+      // visibility: hidden;
+      // opacity: 0;
+      font-weight: $font-normal;
     }
   }
 }
@@ -76,10 +82,7 @@
     }
 
     &__photo {
-      width: $home-size;
-      height: $home-size;
-      object-fit: cover;
-      border-radius: $radius;
+      @include photo;
       margin: 0 20px 0 0;  
     }
 
@@ -131,3 +134,13 @@
     }
   }
 }
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  
+  &__photo {
+    @include photo;
+  }
+}
+

@@ -81,14 +81,14 @@ export const app = {
     thisApp.cartWrapper.classList.toggle(classNames.cart.hidden, thisApp.home == classNames.pages.active);
   },
 
-  initHome: function(){
-    const thisApp = this;
+  // initHome: function(){
+  //   const thisApp = this;
 
-    const homeElem = document.querySelector(select.containerOf.home);
+  //   const homeElem = document.querySelector(select.containerOf.home);
 
-    thisApp.home = new Home (homeElem);
+  //   thisApp.home = new Home (homeElem);
 
-  },
+  // },
 
 
   initMenu: function(){
@@ -132,7 +132,7 @@ export const app = {
     //console.log('templates:', templates);
     
     thisApp.initPages();
-    thisApp.initHome();
+    //thisApp.initHome();
     thisApp.initData();
     thisApp.initCart();
     thisApp.initBooking();

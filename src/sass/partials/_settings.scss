@@ -63,6 +63,13 @@ $home-size: 193px;
   transform: translate(-50%, -50%);
 }
 
+@mixin photo() {
+  width: $home-size;
+  height: $home-size;
+  object-fit: cover;
+  border-radius: $radius;
+}
+
 @mixin accordion-closed() {
   position: relative;
   overflow: hidden;
