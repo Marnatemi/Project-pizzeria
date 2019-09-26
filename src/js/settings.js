@@ -74,6 +74,9 @@ export const select = {
     linksWrapper: '.main-nav',
     links: '.main-nav a',
   },
+  home: {
+    links: '.box a',
+  }
 };
 
 export const classNames = {

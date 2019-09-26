@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pizzeria</title>
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext"
+    rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="./vendor/range-slider.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
   <header class="header">
     <div class="container">
@@ -75,25 +78,60 @@
   <script id="template-home-page" type="text/x-handlebars-template">
     <div class="home-page">
       <section class="boxes">
-        <div class="box top">
-          <img class="box-photo" src="images/home/pizza-1.jpg" alt="pizza">
-          <div class="box-content">
-            <h1 class="box-title">Order online</h1>
-            <h3 class="box-subtitle">Delicious food delivered to your door</h3>
+        <div class="top">
+          <div class="box">
+            <a href="#order"><img class="box__photo" src="images/home/pizza-1.jpg" alt="pizza"></a>
+            <div class="box__content">
+              <h1 class="box__title">Order online</h1>
+              <h3 class="box__subtitle">Delicious food delivered to your door</h3>
+            </div>
+          </div>
+          <div class="box">
+            <a href="#booking"><img class="box__photo" src="images/home/pizza-2.jpg" alt="table"></a>
+            <div class="box__content">
+              <h1 class="box__title">Book a table</h1>
+              <h3 class="box__subtitle">Table prepared especially for you</h3>
+            </div>  
           </div>
         </div>
-        <div class="box top">
-          <img class="box-photo" src="images/home/pizza-2.jpg" alt="table">
-          <div class="box-content">
-            <h1 class="box-title">Book a table</h1>
-            <h3 class="box-subtitle">Table prepared especially for you</h3>
-          </div>  
-        </div>
         <div class="box bottom">
-          <div class="box-content">
-            <h1 class="box-title">Opening hours:</h1>
-            <h3 class="box-subtitle">tue-sun, 12pm - 11pm</h3>
+          <div class="box__content">
+            <h1 class="box__title">Opening hours:</h1>
+            <h3 class="box__subtitle">tue-sun, 12pm - 11pm</h3>
           </div>    
+        </div>
+      </section>
+      <section class="carousel">
+        <div class="opinion active">
+          <img class="opinion__photo" src="images/home/pizza-3.jpg" alt="guests at the table">
+          <blockquote class="opinion__wrapper">
+            <h2 class="opinion__title no-spacing">Wonderful place!</h2>
+            <p class="opinion__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam egestas viverra tortor, eu ullamcorper dui imperdiet nec. Nunc sed dolor at elit lobortis sodales.</p>
+            <span>– Kate Martin</span>
+          </blockquote>
+        </div>
+        <div class="opinion">
+          <img class="opinion__photo" src="images/home/pizza-4.jpg" alt="waiter with plates">
+          <blockquote class="opinion__wrapper">
+            <h2 class="opinion__title no-spacing">Amazing service!</h2>
+            <p class="opinion__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam egestas viverra tortor, eu ullamcorper dui imperdiet nec. Nunc sed dolor at elit lobortis sodales.</p>
+            <span>– Margaret Osborne</span>
+          </blockquote>
+        </div>
+        <div class="opinion">
+          <img class="opinion__photo" src="images/home/pizza-5.jpg" alt="wegetables at the table">
+          <blockquote class="opinion__wrapper">
+            <h2 class="opinion__title no-spacing">The best food in the city!</h2>
+            <p class="opinion__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam egestas viverra tortor, eu ullamcorper dui imperdiet nec. Nunc sed dolor at elit lobortis sodales.</p>
+            <span>– Thomas Fitch</span>
+          </blockquote>
+        </div>
+        <div class="indicators">
+          <ul class="indicators__points no-spacing">
+            <li class="indicators__point active"></li>
+            <li class="indicators__point"></li>
+            <li class="indicators__point"></li>
+          </ul>
         </div>
       </section>
     </div>
@@ -273,4 +311,5 @@
   <script src="./vendor/range-slider.min.js"></script>
   <script src="js/app.js" type="module"></script>
 </body>
+
 </html>

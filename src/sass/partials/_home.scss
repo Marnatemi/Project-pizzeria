@@ -8,51 +8,126 @@
 }
 
 .boxes {
-  display: flex;
-  flex-wrap: wrap;
+  padding-bottom: ($base-size)*2;
+
+  .top {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .bottom {
+    background-color: $color-main;
+    border-radius: $radius;
+  
+    .box__content .box__subtitle {
+      display: block;
+      min-width: $home-size;
+      @extend .h2;
+    }
+  }
 }
+
 .box {
   box-sizing: border-box;
+  min-width: $home-size;
   height: 119px;
   flex: 1 0 0;
   color: $color-light;
   margin: 3px;
   position: relative;
 
-  
-
-  .box-photo {
+  .box__photo {
     border-radius: $radius;
     height: 100%;
     width: 100%;
     object-fit: cover;
   }
 
-  .box-content{
+  .box__content{
     @include center;
 
-    .box-title {
+    .box__title {
       @extend .h1;
       margin: 0;
     }
 
-    .box-subtitle{
+    .box__subtitle{
       display: none;
     }
   }
-  
-
-
 }
 
-.bottom {
-  background-color: $color-main;
-  flex: 0 0 100%;
-  border-radius: $radius;
+.carousel {
+  padding: ($base-size)*5 0;
 
-  .box-content .box-subtitle {
-    display: block;
-    margin: 0;
-    @extend .h2;
+  .opinion {
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+    margin: auto;
+    z-index: 1;
+    display: flex;
+    //flex-wrap: wrap;
+
+    &.active {
+      opacity: 1;
+      position: relative;
+      z-index: 10;
+    }
+
+    &__photo {
+      width: $home-size;
+      height: $home-size;
+      object-fit: cover;
+      border-radius: $radius;
+      margin: 0 20px 0 0;  
+    }
+
+    &__wrapper {
+      max-width: 400px;
+      min-width: $home-size;
+      text-align: left;
+      margin: 0 0 0 20px;
+      padding: 24px 0;
+    }
+
+    &__title {
+      @extend .h2;
+      line-height: 10px;
+    }
+
+    &__description {
+      margin: ($base-size)*2 0;
+      line-height: 23px;
+    }
+
+    span {
+      font-style: italic;
+      margin: $base-size 0 0 0;
+      line-height: 10px;
+    }
+  }
+}
+
+.indicators {
+  margin: auto;
+  width: 80px;
+  padding-top: 30px;
+
+  &__points {
+    list-style: none;
+    display: flex;
+
+    .indicators__point {
+      background-color: $color-medium;
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      margin: 8px;
+  
+      &.active {
+        background-color: $color-dark;
+      }
+    }
   }
 }

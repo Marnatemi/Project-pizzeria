@@ -1,4 +1,4 @@
-import {templates} from '../settings.js';
+import { templates} from '../settings.js';
 
 class Home {
   constructor(wrapper){
@@ -17,8 +17,8 @@ class Home {
     thisHome.dom.wrapper = wrapper;
 
     thisHome.dom.wrapper.innerHTML = generatedHTML;
-  }
 
+  }
 }
 
 export default Home;

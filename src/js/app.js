@@ -12,13 +12,13 @@ export const app = {
     const thisApp = this;
 
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
-
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
-
+    console.log(thisApp.pages, thisApp.navLinks);
 
     const idFromHash = window.location.hash.replace('#/', '');
 
     let pageMatchingHash = thisApp.pages[0].id;
+    console.log(pageMatchingHash);
 
     for (let page of thisApp.pages){
       if(page.id == idFromHash){
@@ -26,7 +26,8 @@ export const app = {
         break;
       }
     }  
-    //console.log(thisApp.pages);
+    
+    
     
     thisApp.activatePage(pageMatchingHash);
 
@@ -38,7 +39,7 @@ export const app = {
         /* get page id from href attribute */
         const id = cilckedElement.getAttribute('href').replace('#', '');
 
-        /* run thisApp.activatePae with that id */
+        /* run thisApp.activatePage with that id */
         thisApp.activatePage(id);
 
         /* change URL hash */
@@ -49,7 +50,7 @@ export const app = {
 
   activatePage: function(pageId){
     const thisApp = this;
-
+    console.log('works');
     /* add class "active" to matching pages, remove from non-matching */
 
     for(let page of thisApp.pages){
