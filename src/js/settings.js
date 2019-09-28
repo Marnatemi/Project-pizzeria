@@ -8,7 +8,7 @@ export const select = {
     bookingWidget: '#template-booking-widget',
   },
   containerOf: {
-    home: '.home-wrapper',
+    carousel: '.carousel',
     menu: '#product-list',
     cart: '#cart',
     pages: '#pages',
@@ -76,6 +76,8 @@ export const select = {
   },
   home: {
     links: '.box a',
+    carouselCard: '.opinion',
+    carouselDot: '.indicators__dot'
   }
 };
 
