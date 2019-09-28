@@ -4,11 +4,14 @@
   background: $color-light;
   border-bottom: 1px solid lighten($color-dark, 70%);
   border-radius: $radius;
-  text-align: center;
+  text-align: left;
 }
 
+
+/* boxes */
 .boxes {
   padding-bottom: ($base-size)*2;
+  text-align: center;
 
   .top {
     display: flex;
@@ -18,6 +21,7 @@
   .bottom {
     background-color: $color-main;
     border-radius: $radius;
+    margin-bottom: 0;
   
     .box__content .box__subtitle {
       display: block;
@@ -38,11 +42,8 @@
   margin: 3px;
   position: relative;
 
-  &__photo {
-    border-radius: $radius;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+  &__image {
+    @include image(100%, 100%);
   }
 
   &__content {
@@ -63,11 +64,12 @@
   }
 }
 
+/* carousel */
+
 .carousel {
-  padding: ($base-size)*5 0;
+  padding: 76px 0;
 
   .opinion {
-    width: 100%;
     opacity: 0;
     position: absolute;
     margin: auto;
@@ -76,13 +78,14 @@
     //flex-wrap: wrap;
 
     &.active {
+      width: 100%;
       opacity: 1;
       position: relative;
       z-index: 10;
     }
 
-    &__photo {
-      @include photo;
+    &__image {
+      @include image ($home-size, $home-size);
       margin: 0 20px 0 0;  
     }
 
@@ -91,16 +94,16 @@
       min-width: $home-size;
       text-align: left;
       margin: 0 0 0 20px;
-      padding: 24px 0;
+      padding: 25px 0;
     }
 
     &__title {
       @extend .h2;
-      line-height: 10px;
+      line-height: 12px;
     }
 
     &__description {
-      margin: ($base-size)*2 0;
+      margin: 20px 0 24px;
       line-height: 23px;
     }
 
@@ -115,7 +118,7 @@
 .indicators {
   margin: auto;
   width: 80px;
-  padding-top: 30px;
+  padding-top: 35px;
 
   &__points {
     list-style: none;
@@ -126,7 +129,7 @@
       border-radius: 50%;
       width: 10px;
       height: 10px;
-      margin: 8px;
+      margin: 0 8px;
   
       &.active {
         background-color: $color-dark;
@@ -135,12 +138,74 @@
   }
 }
 
-.gallery {
+
+/* gallery */
+
+.gallery__wrapper {
+  margin: -6px;
   display: flex;
   flex-wrap: wrap;
-  
-  &__photo {
-    @include photo;
+  justify-content: center;
+}
+
+.gallery__item {
+  flex: 0 0 33.3333%;
+  position: relative;
+
+  .gallery__image {
+    margin: 6px;
+    @include image($home-size, $home-size);
+    position: relative;
+
+    img {
+      @include image($home-size, $home-size);
+    }
+
+    &:before {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: $radius;
+      content: '';
+      display: block;
+      background-color: $color-dark;
+      opacity: 0;
+    }
+  }
+
+  .links {
+    @include center;
+    display: flex;
+    font-size: 22px;
+    list-style: none;
+    visibility: hidden;
+
+    li {
+      &:first-of-type a {
+        color: $color-danger;
+      }
+      a {
+        color: $color-light;
+        margin: 13px;
+      }
+    }
+  }
+
+  &:hover {
+    .gallery__image::before{
+      transition: $transition;
+      opacity: 0.5;
+    }
+    .links {
+      visibility: visible;
+      transition: $transition;
+    }
   }
 }
 
+
+.gallery__footer {
+  margin: 31px 0 4px 0;
+  display: block;
+  color: $color-main;
+}

@@ -63,9 +63,9 @@ $home-size: 193px;
   transform: translate(-50%, -50%);
 }
 
-@mixin photo() {
-  width: $home-size;
-  height: $home-size;
+@mixin image($image-width, $image-height) {
+  width: $image-width;
+  height: $image-height;
   object-fit: cover;
   border-radius: $radius;
 }
