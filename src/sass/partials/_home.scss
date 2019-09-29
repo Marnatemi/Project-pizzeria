@@ -16,6 +16,31 @@
   .top {
     display: flex;
     flex-wrap: wrap;
+
+    .box {
+      .box__title {
+        @include center;
+        transition: $transition;
+      }
+
+      .box__subtitle {
+        @include center;
+        top: 100%;
+      }
+
+      &:hover { 
+    
+        .box__title {
+          transition: $transition;
+          top: 30%;
+        }
+    
+        .box__subtitle {
+          transition: $transition;
+          top: 60%;
+        }
+      }
+    }
   }
 
   .bottom {
@@ -23,11 +48,15 @@
     border-radius: $radius;
     margin-bottom: 0;
   
-    .box__content .box__subtitle {
-      display: block;
-      min-width: $home-size;
-      @extend .h2;
-      margin: 3px 0;
+    .box__content {
+      @include center;
+    
+      .box__subtitle {
+        visibility: visible;
+        min-width: $home-size;
+        @extend .h2;
+        margin: 3px 0;
+      }
     }
   }
 }
@@ -47,7 +76,6 @@
   }
 
   &__content {
-    @include center;
     width: 100%;
 
     .box__title {
@@ -56,9 +84,7 @@
     }
 
     .box__subtitle {
-      display: none;
-      // visibility: hidden;
-      // opacity: 0;
+      width: 100%;
       font-weight: $font-normal;
     }
   }
@@ -70,12 +96,14 @@
   padding: 76px 0;
 
   .opinion {
+    flex: 1 0 0 ;
     opacity: 0;
     position: absolute;
-    margin: auto;
+    margin: 0;
     z-index: 1;
     display: flex;
     //flex-wrap: wrap;
+    justify-content: center;
 
     &.active {
       transition: $transition;
