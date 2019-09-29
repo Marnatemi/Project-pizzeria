@@ -210,13 +210,11 @@
     list-style: none;
     visibility: hidden;
 
-    li {
-      &:first-of-type a {
-        color: $color-danger;
-      }
-      a {
-        color: $color-light;
-        margin: 13px;
+    li a {
+      color: $color-light;
+      margin: 13px;
+      &:hover {
+        color: $color-main;
       }
     }
   }
