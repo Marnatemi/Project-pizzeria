@@ -31,6 +31,7 @@ class BaseWidget {
     const thisWidget = this;
 
     thisWidget.value = value;
+    console.log(thisWidget.value);
   }
 
   parseValue(value) {

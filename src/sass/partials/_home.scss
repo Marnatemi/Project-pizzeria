@@ -29,7 +29,6 @@
       }
 
       &:hover { 
-    
         .box__title {
           transition: $transition;
           top: 30%;
@@ -213,6 +212,7 @@
     li a {
       color: $color-light;
       margin: 13px;
+      
       &:hover {
         color: $color-main;
       }
@@ -224,13 +224,13 @@
       transition: $transition;
       opacity: 0.5;
     }
+
     .links {
       visibility: visible;
       transition: $transition;
     }
   }
 }
-
 
 .gallery__footer {
   margin: 31px 0 4px 0;

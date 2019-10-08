@@ -32,6 +32,7 @@ export const select = {
       input: 'input.amount',
       linkDecrease: 'a[href="#less"]',
       linkIncrease: 'a[href="#more"]',
+      name: 'name',
     },
     datePicker: {
       wrapper: '.date-picker',
@@ -93,6 +94,7 @@ export const classNames = {
   booking: {
     loading: 'loading',
     tableBooked: 'booked',
+    tableSelected: 'selected',
   },
   nav: {
     hidden: 'hidden',
@@ -112,6 +114,9 @@ export const settings = {
     defaultValue: 1,
     defaultMin: 1,
     defaultMax: 9,
+    defaultSet: 1,
+    hoursSet: 0.5,
+    hoursAmountName: 'hours',
   },
   datePicker: {
     maxDaysInFuture: 14,
