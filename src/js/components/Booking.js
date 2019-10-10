@@ -1,6 +1,6 @@
 import { select, templates, settings, classNames } from '../settings.js';
 import utils from '../utils.js';
-import AmountWidget from './AmoutWidget.js';
+import AmountWidget from './AmountWidget.js';
 import DatePicker from './DatePicker.js';
 import HourPicker from './HourPicker.js';
 
@@ -120,7 +120,7 @@ class Booking {
       }
     }
 
-    console.log('thisBooking.booked', thisBooking.booked);
+    //console.log('thisBooking.booked', thisBooking.booked);
     thisBooking.updateDOM();
   }
 
@@ -147,11 +147,11 @@ class Booking {
         }
         
         thisBooking.nextReservation = thisBooking.bookedYet[0];
-        console.log('nextReservation', thisBooking.nextReservation);
-        console.log('reservationEnd', thisBooking.reservationEnd);
+        //console.log('nextReservation', thisBooking.nextReservation);
+        //console.log('reservationEnd', thisBooking.reservationEnd);
 
         if (thisBooking.nextReservation - thisBooking.reservationEnd >= 0 || typeof thisBooking.nextReservation == 'undefined'){
-          table.classList.add(classNames.booking.tableSelected);
+          table.classList.toggle(classNames.booking.tableSelected);
         }
       });
 
@@ -231,7 +231,7 @@ class Booking {
     const startHour = utils.hourToNumber(hour);
 
     for(let hourBlock = startHour ; hourBlock < startHour + duration; hourBlock += 0.5){
-      //console.log('loop', hourBlock);
+      ////console.log('loop', hourBlock);
 
       if(typeof thisBooking.booked[date][hourBlock] == 'undefined'){
         thisBooking.booked[date][hourBlock] = [];

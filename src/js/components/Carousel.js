@@ -17,7 +17,6 @@ class Carousel {
 
   displayCard(n) {
     const thisCarousel = this;
-    //console.log(n);
 
     let i;
 
@@ -34,13 +33,11 @@ class Carousel {
 
   changeCard(n) {
     const thisCarousel = this;
-    //console.log(n);
 
     clearInterval(thisCarousel.carouselTimer);
 
     thisCarousel.displayCard(thisCarousel.cardIndex += 1);
 
-    //console.log(n);
 
     n = 0;
 

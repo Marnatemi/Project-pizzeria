@@ -54,6 +54,7 @@ class DatePicker extends BaseWidget {
   }
 
   renderValue() {
+    /* Value rendered by plugin */
   }
 }
 

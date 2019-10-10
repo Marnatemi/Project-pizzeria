@@ -130,8 +130,6 @@ class Cart{
 
     thisCart.totalPrice = thisCart.subtotalPrice + thisCart.deliveryFee;
 
-    console.log('totalNumber, subtotalPrice, totalPrice:', thisCart.totalNumber + ',' + thisCart.subtotalPrice + ',' + thisCart.totalPrice);
-
     for(let key of thisCart.renderTotalsKeys){
       for(let elem of thisCart.dom[key]){
         elem.innerHTML = thisCart[key];
@@ -144,7 +142,6 @@ class Cart{
     const thisCart = this;
 
     const index = thisCart.products.indexOf(cartProduct);
-    console.log('index of removed product:', index);
 
     thisCart.products.splice(index, 1);
 
